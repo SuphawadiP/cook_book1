@@ -15,7 +15,8 @@
 
 void app_main(void)
 {
-    printf("Hello world!\n");
+    printf("Hello!!!\n");
+    printf("私の名前は [Phai] です。\n");
 
     /* Print chip information */
     esp_chip_info_t chip_info;
@@ -42,7 +43,7 @@ void app_main(void)
 
     printf("Minimum free heap size: %" PRIu32 " bytes\n", esp_get_minimum_free_heap_size());
 
-    for (int i = 10; i >= 0; i--) {
+    for (int i = 60; i >= 0; i--) {
         printf("Restarting in %d seconds...\n", i);
         vTaskDelay(1000 / portTICK_PERIOD_MS);
     }
