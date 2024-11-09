@@ -1,53 +1,48 @@
-| Supported Targets | ESP32 | ESP32-C2 | ESP32-C3 | ESP32-C6 | ESP32-H2 | ESP32-P4 | ESP32-S2 | ESP32-S3 | Linux |
-| ----------------- | ----- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | ----- |
-
 # Hello World Example
 
-Starts a FreeRTOS task to print "Hello World".
+## การเลือก Example IDF
 
-(See the README.md file in the upper level 'examples' directory for more information about examples.)
+![image](https://github.com/user-attachments/assets/3f5883ec-8854-4d1a-a48d-7875819e77c7)
 
-## How to use example
+ขั้นตอนการเลือก Example IDF
+1. เลือก ESP-IDF
+2. เปิดโปรแกรมตัวอย่าง hello_world
+3. เลือก hello_world
+4. เลือก Create project using example hello_world
+5. build, flash และ monitor โปรแกรม
 
-Follow detailed instructions provided specifically for this example.
+### ผลลัพธ์
+โดยการทำงานของ Example นี้คือให้แสดงผลข้อความ "Hello World" และ restart ทุกๆ 10 วินาที
 
-Select the instructions depending on Espressif chip installed on your development board:
+![Screenshot 2024-11-09 212605](https://github.com/user-attachments/assets/276b9ef2-74f2-4478-a269-ba617f6fef75)
 
-- [ESP32 Getting Started Guide](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html)
-- [ESP32-S2 Getting Started Guide](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s2/get-started/index.html)
+https://drive.google.com/file/d/155X24JyQ-q-5kneNnJix3GNYwuw3f8W3/view?usp=sharing
 
+## การแก้ไข
 
-## Example folder contents
+6. แก้ไขไฟล์ main.c เพื่อแก้ไขการแสดงผล
+   
+* สามารถแก้ไขข้อความที่ต้องการให้แสดงผลได้
 
-The project **hello_world** contains one source file in C language [hello_world_main.c](main/hello_world_main.c). The file is located in folder [main](main).
-
-ESP-IDF projects are built using CMake. The project build configuration is contained in `CMakeLists.txt` files that provide set of directives and instructions describing the project's source files and targets (executable, library, or both).
-
-Below is short explanation of remaining files in the project folder.
-
+![Screenshot 2024-11-09 215523](https://github.com/user-attachments/assets/561aaa84-0c89-4cbc-a517-2c30ce7a3ea9)
+     
+ตัวอย่าง
 ```
-├── CMakeLists.txt
-├── pytest_hello_world.py      Python script used for automated testing
-├── main
-│   ├── CMakeLists.txt
-│   └── hello_world_main.c
-└── README.md                  This is the file you are currently reading
+    printf("Hello!!!\n");
+    printf("私の名前は [Phai] です。\n");
 ```
+* สามารถแก้ไขความเร็วที่ต้องการให้แสดงผลได้ จากการเปลี่ยนการนับเวลาถอยและระยะเวลาในการ delay
+  
+![Screenshot 2024-11-09 220159](https://github.com/user-attachments/assets/d6c75d88-c1e7-40d3-b460-df0f19533540)
 
-For more information on structure and contents of ESP-IDF projects, please refer to Section [Build System](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/build-system.html) of the ESP-IDF Programming Guide.
+## ผลลัพธ์หลักการแก้ไข
 
-## Troubleshooting
+* แสดงผลข้อความบน Serial Moniter "Hello world! 私の名前は [Phai] です。" และ restart ทุกๆ 1 นาที
 
-* Program upload failure
+![Screenshot 2024-11-09 221322](https://github.com/user-attachments/assets/1f9ae45d-3f02-46f7-aac1-7c04d16cc5ea)
 
-    * Hardware connection is not correct: run `idf.py -p PORT monitor`, and reboot your board to see if there are any output logs.
-    * The baud rate for downloading is too high: lower your baud rate in the `menuconfig` menu, and try again.
+https://drive.google.com/file/d/1Qzm-6j0ZK3HCQDrA8jlBN_0Vf5AB3aPU/view?usp=sharing
 
-## Technical support and feedback
+## สรุปผลการทดลอง
+* การทดลอง Hello World Example บน ESP32 เป็นขั้นพื้นฐานที่ช่วยให้เราเข้าใจการเชื่อมต่อและการเขียนโค้ดเบื้องต้นบนบอร์ด ESP32 ได้ดี เมื่ออัปโหลดโค้ดสำเร็จ และเปิด Serial Monitor จะเห็นข้อความที่กำหนดไว้ ซึ่งแสดงว่าการเชื่อมต่อและการอัปโหลดโค้ดทำงานได้อย่างถูกต้อง
 
-Please use the following feedback channels:
-
-* For technical queries, go to the [esp32.com](https://esp32.com/) forum
-* For a feature request or bug report, create a [GitHub issue](https://github.com/espressif/esp-idf/issues)
-
-We will get back to you as soon as possible.
